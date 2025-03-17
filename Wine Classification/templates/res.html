@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Wine Quality Prediction Result</h2>
+        <p><strong>The Wine Belongs to class:</strong> {{ prediction }}</p>
+        <p><strong>Input Values:</strong></p>
+        <ul>
+            <li>Citric Acid: {{ citric_acid }}</li>
+            <li>Residual Sugar: {{ residual_sugar }}</li>
+            <li>pH: {{ pH }}</li>
+            <li>Sulphates: {{ sulphates }}</li>
+            <li>Alcohol: {{ alcohol }}</li>
+        </ul>
+        <br>
+        <a href="/">Go Back</a>
+        <div class="footer">
+            Made with ❤️ by <a href="https://github.com/sudo-xda" target="_blank">sudo-xda</a>
+        </div>
+    </div>
+</body>
+</html>

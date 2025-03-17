@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wine Quality Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Wine Characteristics for Quality Prediction</h2>
+        <form action="/predict" method="POST">
+            <label for="citric_acid">Citric Acid:</label>
+            <input type="text" name="citric_acid" required><br>
+    
+            <label for="residual_sugar">Residual Sugar:</label>
+            <input type="text" name="residual_sugar" required><br>
+    
+            <label for="pH">pH:</label>
+            <input type="text" name="pH" required><br>
+    
+            <label for="sulphates">Sulphates:</label>
+            <input type="text" name="sulphates" required><br>
+    
+            <label for="alcohol">Alcohol:</label>
+            <input type="text" name="alcohol" required><br>
+    
+            <button type="submit">Predict</button>
+        </form>
+        <div class="footer">
+            Made with ❤️ by <a href="https://github.com/sudo-xda" target="_blank">sudo-xda</a>
+        </div>
+    </div>
+</body>
+</html>
