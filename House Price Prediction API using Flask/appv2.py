@@ -37,10 +37,10 @@ def predict():
 @app.route('/predict_api', methods=['POST'])
 def predict_api():
     try:
-        data = request.get_json()  # Correct way to read JSON request body
+        data = request.get_json()  
 
         year = int(data['year'])
-        sqft = int(data.get('sqft', 1))  # Default to 1 if not provided
+        sqft = int(data.get('sqft', 1))  
 
         predicted_price_per_sqft = loaded_model.predict([[year]])[0]
         total_price = predicted_price_per_sqft * sqft
