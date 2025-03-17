@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import pickle
 import numpy as np
 
@@ -29,10 +29,26 @@ def predict():
         total_price = predicted_price_per_sqft * sqft
 
         return render_template('resv2.html', prediction=total_price, year=year, sqft=sqft)
-
+    
     except Exception as e:
         return f"Error: {e}"
 
+
+@app.route('/predict_api', methods=['POST'])
+def predict_api():
+    try:
+        data = request.get_json()  # Correct way to read JSON request body
+
+        year = int(data['year'])
+        sqft = int(data.get('sqft', 1))  # Default to 1 if not provided
+
+        predicted_price_per_sqft = loaded_model.predict([[year]])[0]
+        total_price = predicted_price_per_sqft * sqft
+        
+        return jsonify({'prediction': total_price})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 
 if __name__ == '__main__':
