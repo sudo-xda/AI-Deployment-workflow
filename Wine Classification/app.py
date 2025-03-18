@@ -25,12 +25,7 @@ def predict():
         sulphates = x_in['sulphates'].values[0]
         alcohol = x_in['alcohol'].values[0]
 
-
-
-     
         norm = Tr_Fn.fit_transform(x_in)
-        
-     
         y_pred = loaded_model.predict(norm)[0]
         
         return render_template('res.html', prediction=y_pred,citric_acid=citric_acid, 
@@ -55,11 +50,9 @@ def predict_api():
             "alcohol": float(data['alcohol'])
         }])
 
-      
         norm = Tr_Fn.fit_transform(x_in)
         x=norm.reshape(1,-1)
 
-    
         y_pred = loaded_model.predict(x)
 
         print(f"Raw input: {data}")
