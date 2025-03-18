@@ -25,15 +25,17 @@
 <body>
     <div class="container">
         <h2>Wine Quality Prediction Result</h2>
-        <p><strong>The Wine Belongs to class:</strong> {{ prediction }}</p>
         <p><strong>Input Values:</strong></p>
-        <ul>
-            <li>Citric Acid: {{ citric_acid }}</li>
-            <li>Residual Sugar: {{ residual_sugar }}</li>
-            <li>pH: {{ pH }}</li>
-            <li>Sulphates: {{ sulphates }}</li>
-            <li>Alcohol: {{ alcohol }}</li>
-        </ul>
+        <p><b>Citric Acid:</b> {{citric_acid}}</p>
+        <p><b>Residual Sugar:</b> {{residual_sugar}}</p>
+        <p><b>pH:</b> {{pH}}</p>
+        <p><b>Sulphates:</b> {{sulphates}}</p>
+        <p><b>Alcohol:</b> {{alcohol}}</p>
+
+        <br>
+        <p><strong>Predicted Quality:</strong></p>
+        <p><strong>This wine is predicted to be of class: {{ prediction }}</strong></p>
+        
         <br>
         <a href="/">Go Back</a>
         <div class="footer">

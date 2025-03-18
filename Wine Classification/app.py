@@ -18,14 +18,26 @@ selected_features = ['citric_acid', 'residual_sugar', 'pH', 'sulphates', 'alcoho
 def predict():
     try:
         x_in = pd.DataFrame([{feature: float(request.form[feature]) for feature in selected_features}])
-        
+
+        citric_acid = x_in['citric_acid'].values[0]
+        residual_sugar = x_in['residual_sugar'].values[0]
+        pH = x_in['pH'].values[0]
+        sulphates = x_in['sulphates'].values[0]
+        alcohol = x_in['alcohol'].values[0]
+
+
+
      
         norm = Tr_Fn.fit_transform(x_in)
         
      
         y_pred = loaded_model.predict(norm)[0]
         
-        return render_template('res.html', prediction=y_pred)
+        return render_template('res.html', prediction=y_pred,citric_acid=citric_acid, 
+                           residual_sugar=residual_sugar,
+                           pH=pH,
+                           sulphates=sulphates,
+                           alcohol=alcohol)
     except Exception as e:
         return f"Error: {e}" 
 
